@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/log-register-layout.html}">
+<head>
+
+</head>
+<body>
+
+<th:block layout:fragment="content">
+<section id="banner">
+    <div class="container">
+
+        <!-- Sign Up Form
+        ================================================= -->
+        <div class="sign-up-form">
+            <a href="home-page.html" class="logo"><img src="/images/logo.png" width="200" height="100" alt="Myriad For Jesus"/></a>
+            <h2 class="text-white">Share the word of Life</h2>
+            <div class="line-divider"></div>
+            <div class="form-wrapper">
+                <form action="#" th:action="@{/users/login}"  method="post">
+                    <div class="col-md-12">
+                        <div th:if="${param.error}" class="alert alert-dismissible alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Invalid username or password.
+                        </div>
+                        <div th:if="${param.logout}" class="alert alert-dismissible alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            You have been signed out.
+                        </div>
+                        <div th:if="${param.new}" class="alert alert-dismissible alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <h3>Welcome!</h3> <br>Registration successful. Sign in to continue!.
+                        </div>
+                    </div>
+
+                    <p class="signup-text">Login!</p>
+
+                    <fieldset class="form-group">
+                        <input type="email"  class="form-control" id="example-email" name="username"  placeholder="Enter email">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password" class="form-control" id="example-password" name="password" placeholder="Enter a password">
+                    </fieldset>
+                    <p>Forgot Password?</p>
+                    <a href="/user/create-new-account" ><span  style="background-color: transparent">
+                       <p> Not yet Registered? Sign up here</p>
+                    </span></a>
+                    <button class="btn-secondary" type="submit">Login</button>
+                </form>
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+
+            </div>
+
+            <img class="form-shadow" src="/images/bottom-shadow.png" alt="" />
+        </div><!-- Sign Up Form End -->
+
+        <svg class="arrows hidden-xs hidden-sm">
+            <path class="a1" d="M0 0 L30 32 L60 0"></path>
+            <path class="a2" d="M0 20 L30 52 L60 20"></path>
+            <path class="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Features Section
+================================================= -->
+<section id="features">
+    <div class="container wrapper">
+        <h1 class="section-title slideDown">Social Myriads</h1>
+        <div class="row slideUp">
+            <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
+                <div class="feature-icon" style="background-image:url('/images/four/Transform2.png');" > </div>
+                <h3>Myriads for Jesus</h3>
+            </div>
+            <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                <div class="feature-icon"style="background-image:url('/images/four/Equiping.png');"> </div>
+                <h3>Equipping Believers</h3>
+            </div>
+            <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                <div class="feature-icon"style="background-image:url('/images/four/Witnessing.png');"> </div>
+                <h3>Witnessing Jesus</h3>
+            </div>
+            <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                <div class="feature-icon"style="background-image:url('/images/four/Transform2.png');"></div>
+                <h3>Transforming lives</h3>
+            </div>
+        </div>
+        <h2 class="sub-title">find awesome people like you</h2>
+        <div id="incremental-counter" data-value="101242"></div>
+        <p>People Already Signed Up</p>
+        <img src="/images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
+    </div>
+
+</section>
+
+
+
+<!-- Image Divider
+================================================= -->
+<div class="img-divider hidden-sm hidden-xs"></div>
+
+
+
+</th:block>
+
+</body>
+</html>

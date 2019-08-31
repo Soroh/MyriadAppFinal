@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/log-register-layout.html}">
+<head>
+
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+<!-- Top Banner
+================================================= -->
+<section id="banner">
+    <div class="container">
+
+        <!-- Sign Up Form
+        ================================================= -->
+        <div class="sign-up-form">
+            <a href="../home/home-page.html" class="logo"><img src="/images/logo.png" width="200" height="100" alt="Friend Finder"/></a>
+
+            <div class="form-wrapper">
+                <form action="#" th:action="@{/myriad/save}"  th:object="${myriad}"  method="post">
+                    <p class="signup-text">Sign Up!</p>
+
+                    <fieldset class="form-group">
+                         <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                               class="alert alert-danger"></span>
+                        <input type="text" class="form-control" th:field="*{firstName}" id="fname" name="firstName" placeholder="First Name" required>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"
+                              class="alert alert-danger"></span>
+                        <input type="text" class="form-control" id="mname" th:field="*{middleName}" name="middleName" placeholder="Middle Name Optional">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                              class="alert alert-danger"></span>
+                        <input type="text" class="form-control" id="lname" th:field="*{lastName}" name="lastName" placeholder="Last Name" required>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"
+                              class="alert alert-danger"></span>
+                        <input type="date" class="form-control" id="dob"  th:field="*{dateOfBirth}"name="dateOfBirth" placeholder="yyyy-dd-mm" required>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"
+                              class="alert alert-danger"></span>
+                        <input type="email" class="form-control" id="email" name="emailAddress" placeholder="Email Address" required>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                              class="alert alert-danger"></span>
+                        <input type="password" class="form-control" th:field="*{password}" id="pass1" placeholder="Enter Password" required>
+                    </fieldset>
+                    <fieldset class="form-group">
+                            <input type="password" class="form-control"  id="pass2" placeholder="Confirm Password" required>
+                    </fieldset>
+                    <p>Forgot Password?</p>
+                    <a href="/" ><span style="background-color: transparent">
+                       <p> I already have an account.</p>
+                    </span></a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-primary">Clear</button>
+                </form>
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+
+            </div>
+
+            <img class="form-shadow" src="/images/bottom-shadow.png" alt="" />
+        </div><!-- Sign Up Form End -->
+
+        <svg class="arrows hidden-xs hidden-sm">
+            <path class="a1" d="M0 0 L30 32 L60 0"></path>
+            <path class="a2" d="M0 20 L30 52 L60 20"></path>
+            <path class="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg>
+    </div>
+</section>
+    <!-- Features Section
+    ================================================= -->
+    <section id="features">
+        <div class="container wrapper">
+            <h1 class="section-title slideDown">Social Myriads</h1>
+            <div class="row slideUp">
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
+                    <div class="feature-icon" style="background-image:url('/images/four/Transform2.png');" > </div>
+                    <h3>Myriads for Jesus</h3>
+                </div>
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                    <div class="feature-icon"style="background-image:url('/images/four/Equiping.png');"> </div>
+                    <h3>Equipping Believers</h3>
+                </div>
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                    <div class="feature-icon"style="background-image:url('/images/four/Witnessing.png');"> </div>
+                    <h3>Witnessing Jesus</h3>
+                </div>
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                    <div class="feature-icon"style="background-image:url('/images/four/Transform2.png');"></div>
+                    <h3>Transforming lives</h3>
+                </div>
+            </div>
+            <h2 class="sub-title">find awesome people like you</h2>
+            <div id="incremental-counter" data-value="101242"></div>
+            <p>People Already Signed Up</p>
+            <img src="/images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
+        </div>
+
+    </section>
+
+
+
+    <!-- Image Divider
+    ================================================= -->
+    <div class="img-divider hidden-sm hidden-xs"></div>
+
+
+
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/main-layout.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+
+<body>
+
+<th:block layout:fragment="content">
+    <div id="page-contents">
+        <div class="container">
+            <div class="row">
+
+                <!-- Newsfeed Common Side Bar Left
+                ================================================= -->
+                <div class="col-md-3 static">
+                    <div class="profile-card">
+                        <img alt="user" class="profile-photo" src="/images/users/user-1.jpg"/>
+                        <h5><a class="text-white" href="../home/timeline.html"
+                               id="fullName" th:text="${myriad.getFirstName()+' ' + myriad.getLastName()}"></a>
+                        </h5>
+                        <a class="text-white" href="#"><i class="ion ion-android-person-add"></i> 0 followers</a>
+                    </div><!--profile card ends-->
+                    <ul class="nav-news-feed">
+                        <li><i class="icon ion-ios-paper"></i>
+                            <div><a href="newsfeed.html">My Newsfeed</a></div>
+                        </li>
+                        <li><i class="icon ion-ios-people"></i>
+                            <div><a href="newsfeed-people-nearby.html">People Nearby</a></div>
+                        </li>
+                        <li><i class="icon ion-ios-people-outline"></i>
+                            <div><a href="newsfeed-friends.html">Friends</a></div>
+                        </li>
+                        <li><i class="icon ion-chatboxes"></i>
+                            <div><a href="newsfeed-messages.html">Messages</a></div>
+                        </li>
+                        <li><i class="icon ion-images"></i>
+                            <div><a href="newsfeed-images.html">Images</a></div>
+                        </li>
+                        <li><i class="icon ion-ios-videocam"></i>
+                            <div><a href="newsfeed-videos.html">Videos</a></div>
+                        </li>
+                    </ul><!--news-feed links ends-->
+                    <div id="chat-block">
+                        <div class="title">Chat online</div>
+                        <ul class="online-users list-inline">
+                            <li><a href="newsfeed-messages.html" title="Linda Lohan"><img alt="user"
+                                                                                          class="img-responsive profile-photo"
+                                                                                          src="/images/users/user-2.jpg"/><span
+                                    class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="Sophia Lee"><img alt="user"
+                                                                                         class="img-responsive profile-photo"
+                                                                                         src="/images/users/user-3.jpg"/><span
+                                    class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="John Doe"><img alt="user"
+                                                                                       class="img-responsive profile-photo"
+                                                                                       src="/images/users/user-4.jpg"/><span
+                                    class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="Alexis Clark"><img
+                                    alt="user" class="img-responsive profile-photo"
+                                    src="/images/users/user-5.jpg"/><span class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="James Carter"><img
+                                    alt="user" class="img-responsive profile-photo"
+                                    src="/images/users/user-6.jpg"/><span class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="Robert Cook"><img alt="user"
+                                                                                          class="img-responsive profile-photo"
+                                                                                          src="/images/users/user-7.jpg"/><span
+                                    class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="Richard Bell"><img
+                                    alt="user" class="img-responsive profile-photo"
+                                    src="/images/users/user-8.jpg"/><span class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="Anna Young"><img alt="user"
+                                                                                         class="img-responsive profile-photo"
+                                                                                         src="/images/users/user-9.jpg"/><span
+                                    class="online-dot"></span></a></li>
+                            <li><a href="newsfeed-messages.html" title="Julia Cox"><img alt="user"
+                                                                                        class="img-responsive profile-photo"
+                                                                                        src="/images/users/user-10.jpg"/><span
+                                    class="online-dot"></span></a></li>
+                        </ul>
+                    </div><!--chat block ends-->
+                </div>
+                <div class="col-md-7">
+                  <span th:if="${myriad.getActive() == 0}">
+                    <div class="create-post">
+            	    <div class="row">
+            		  <div class="col-md-18 col-sm-18">
+                          <h2 style="text-align: center">Welcome to Myriads for Jesus</h2>
+                          <h4 style="text-align: center">Email confirmation Required</h4>
+                      </div>
+                     </div><!-- Post Create Box End-->
+                     <div class="post-content">
+
+                        <div class="post-container">
+                            <div style="margin:0 auto;width: 90%">  <img alt="Email Confirmation" src="/images/bg/email.jfif"
+                                                             style="width: 100%"/></div>
+                               <br> <h4 style="text-align: center;color: black">Confirm your email to be able to post and see others posts</h4>
+                           </div>
+                      </div>
+
+                    </div>
+                  </span>
+
+                </span>
+
+
+              <span th:unless="${myriad.getActive() == 0}">
+            <!-- Post Create Box
+            ================================================= -->
+             <div class="create-post">
+            	<div class="row">
+                    <div class="col-md-7 col-sm-7">
+
+                       <div class="form-group">
+                      <img alt="" class="profile-photo-md" src="/images/users/user-1.jpg"/>
+                      <textarea class="form-control" cols="40" id="postTextArea" name="texts"
+                             placeholder="Inspire or Uplift someone today"
+                             rows="1"></textarea>
+                  </div>
+                    </div>
+            		<div class="col-md-5 col-sm-5">
+                       <div class="tools">
+                         <ul class="publishing-tools list-inline">
+                             <li><a href="#"><i class="ion-images"></i></a></li>
+                          </ul>
+                          <button class="btn btn-primary pull-right" ng-disabled="IsDisabled"
+                            onclick="submitPost()">Publish</button>
+                        </div>
+                    </div>
+
+            	</div> <p id="postRequired" style="color: red"></p>
+            </div><!-- Post Create Box End-->
+            <div id="postsContainer"> <!-- will contain all posts and  adddin new posts-->
+                <!--                  posts from the databases to be organized-->
+                  <table border="0" style="width: 100%">
+                    <tr th:each="temp:${posts}">   <td>
+
+                      <!--Adding a button for update -->
+
+                        <!-- Post Content
+                        ================================================= -->
+            <div class="post-content">
+
+              <div class="post-container">
+                <img alt="user" class="profile-photo-md pull-left" src="/images/users/user-5.jpg"/>
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a class="profile-link" href="../home/timeline.html"
+                           th:text="${temp.getMyriad().getFirstName() +' ' +temp.getMyriad().getLastName()}"></a>
+                      <span class="following">following</span></h5>
+                    <p class="text-muted">Posted on <span th:text="${temp.getPostingDate()}"></span></p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="fa fa-thumbs-up"><span th:text="${temp.getLikes()}"></span></i> </a>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text">
+                    <p th:text="${temp.getMessage()}"></p>  </div>
+                    <!--                  <img src="/images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
+                  <div class="line-divider"></div>
+
+
+                  <div th:id="'div'+${temp.getPostId()}">
+
+                  <div class="post-comment">
+                    <table border="0" style="width: 100%">
+                    <tr th:each="temp1:${temp.getPostComments()}">
+                      <td>
+                        <div>
+                          <div id="userImage" style="float: left;width: 9%">
+                    <img alt="" class="profile-photo-sm" src="/images/users/user-11.jpg"/></div>
+                          <div id="username-comment" style="float: left;width: 87%"> <p><a class="profile-link"
+                                                                                           href="../home/timeline.html"
+                                                                                           th:text="${temp1.getMyriad().getFirstName()+' ' +temp1.getMyriad().getLastName()}"> </a><br><span
+                                  th:text="${temp1.getCommentMessage()}"></span> </p>
+
+                          </div>
+                  </div> </td></tr></table>
+                  </div>
+                  <div class="post-comment">
+                    <img alt="" class="profile-photo-sm" src="/images/users/user-1.jpg"/>
+                    <input class="form-control" placeholder="Post a comment" th:id="'text'+${temp.getPostId()}"
+                           type="text">
+
+
+                    <button class="btn btn-primary pull-right" style="padding: 3px;max-height: 25px;margin: 10px"
+                            th:onclick="'submitComment(' + ${temp.getPostId()}+')'"
+                            type="button"> Comment</button>
+                  </div>
+                </div>
+              </div>
+              </div></div>
+                   </td>  </tr>  </table>
+
+            </div>
+
+                    <!-- Post Content
+                    ================================================= -->
+
+                  </span>
+            </div>
+
+            <!-- Newsfeed Common Side Bar Right
+            ================================================= -->
+            <div class="col-md-2 static">
+                <div class="suggestions" id="sticky-sidebar">
+                    <h4 class="grey">Who to Follow</h4>
+                    <div class="follow-user">
+                        <img alt="" class="profile-photo-sm pull-left" src="/images/users/user-11.jpg"/>
+                        <div>
+                            <h5><a href="../home/timeline.html">Diana Amber</a></h5>
+                            <a class="text-green" href="#">Add friend</a>
+                        </div>
+                    </div>
+                    <div class="follow-user">
+                        <img alt="" class="profile-photo-sm pull-left" src="/images/users/user-12.jpg"/>
+                        <div>
+                            <h5><a href="../home/timeline.html">Cris Haris</a></h5>
+                            <a class="text-green" href="#">Add friend</a>
+                        </div>
+                    </div>
+                    <div class="follow-user">
+                        <img alt="" class="profile-photo-sm pull-left" src="/images/users/user-13.jpg"/>
+                        <div>
+                            <h5><a href="../home/timeline.html">Brian Walton</a></h5>
+                            <a class="text-green" href="#">Add friend</a>
+                        </div>
+                    </div>
+                    <div class="follow-user">
+                        <img alt="" class="profile-photo-sm pull-left" src="/images/users/user-14.jpg"/>
+                        <div>
+                            <h5><a href="../home/timeline.html">Olivia Steward</a></h5>
+                            <a class="text-green" href="#">Add friend</a>
+                        </div>
+                    </div>
+                    <div class="follow-user">
+                        <img alt="" class="profile-photo-sm pull-left" src="/images/users/user-15.jpg"/>
+                        <div>
+                            <h5><a href="../home/timeline.html">Sophia Page</a></h5>
+                            <a class="text-green" href="#">Add friend</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function submitPost() {
+            var postValue = {
+                "message": document.getElementById("postTextArea").value,
+                "myriadId": [[${myriad.getMyriadId()}]],
+                "myriadName": document.getElementById("fullName").innerText
+
+            };
+            if (postValue.message.toString().trim().length == 0) {
+                document.getElementById("postRequired").innerHTML = "Message required!*"
+            } else {
+                $.ajax({
+                    type: "POST",
+                    // contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    url: "/newsfeed/newsfeed",
+                    data: postValue, // Note it is important
+                    success: function (result) {
+
+                    }
+                });
+
+                var div_content = " <div class=\"post-content\">\n" +
+                    "\n" +
+                    "              <div class=\"post-container\" >\n" +
+                    "                <img src=\"/images/users/user-5.jpg\" alt=\"user\" class=\"profile-photo-md pull-left\" />\n" +
+                    "                <div class=\"post-detail\">\n" +
+                    "                  <div class=\"user-info\">\n" +
+                    "                    <h5><a href=\"../home/timeline.html\" class=\"profile-link\" >" + postValue.myriadName + "</a> <span class=\"following\">following</span></h5>\n" +
+                    "                    <p class=\"text-muted\">Published a photo about 3 mins ago</p>\n" +
+                    "                  </div>\n" +
+                    "                  <div class=\"reaction\">\n" +
+                    "                    <a class=\"btn text-green\" ><i class=\"fa fa-thumbs-up\"><span >0</span></i> </a>\n" +
+                    "                  </div>\n" +
+                    "                  <div class=\"line-divider\"></div>\n" +
+                    "                  <div class=\"post-text\">\n" +
+                    "                    <p >" + postValue.message + " </p>  </div>\n" +
+                    "<!--                  <img src=\"/images/post-images/1.jpg\" alt=\"post-image\" class=\"img-responsive post-image\" />-->\n" +
+                    "                  <div class=\"line-divider\"></div>\n" +
+                    "\n" +
+                    "\n" +
+
+                    "                  <div class=\"post-comment\">\n" +
+                    "                    <img src=\"/images/users/user-1.jpg\" alt=\"\" class=\"profile-photo-sm\" />\n" +
+                    "                    <input type=\"text\" class=\"form-control\" placeholder=\"Post a comment\">\n" +
+                    "                  </div>\n" +
+                    "                </div>\n" +
+                    "              </div>\n" +
+                    "            </div>";
+
+
+                document.getElementById("postRequired").innerHTML = "";
+                document.getElementById("postTextArea").value = "";
+                document.getElementById('postsContainer').innerHTML = div_content + document.getElementById("postsContainer").innerHTML;
+            }
+        }
+
+        function submitComment(divId) {
+            var textarea = "text".concat(divId);
+            var div = "div".concat(divId);
+            var commentValue = {
+                "message": document.getElementById(textarea).value,
+                "myriadId": [[${myriad.getMyriadId()}]],
+                "postId": divId
+
+            };
+
+
+            var Comment_div_content = " <img src=\"/images/users/user-11.jpg\" alt=\"\" class=\"profile-photo-sm\" /> " +
+                " <p><a href=\"../home/timeline.html\" class=\"profile-link\" th:text=\"${myriad.getFirstName()}\"> </a><i class=\"em em-laughing\"></i><span>" +
+                commentValue.message + " </span> </p>";
+
+
+            document.getElementById(textarea).value = "";
+            $.ajax({
+                type: "POST",
+                // contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                url: "/newsfeed/comment",
+                data: commentValue, // Note it is important
+                success: function (result) {
+                    // do what ever you want with data
+                    // document.getElementById('postsContainer').insertAdjacentHTML('afterbegin ', div_content);
+
+                }
+            });
+            document.getElementById(div).innerHTML = Comment_div_content + document.getElementById(div).innerHTML;
+
+
+        }
+
+
+    </script>
+
+</th:block>
+
+
+</body>
+</html>
